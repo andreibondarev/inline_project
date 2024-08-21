@@ -5,8 +5,7 @@ A command-line tool to inline the content of a project (code) into a single file
 ## Installation
 
 ```
-pip install git+https://github.com/yourusername/inline-project.git
-pip install git+https://github.com/andreibondarev/inline_project
+pip install git+https://github.com/andreibondarev/inline_project.git
 ```
 
 ## Usage
