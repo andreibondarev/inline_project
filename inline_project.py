@@ -7,9 +7,15 @@ def inline_project(project_dir, output_file, exclude_dirs=None, exclude_files=No
     if exclude_files is None:
         exclude_files = set()
 
+    exclude_dirs = {os.path.relpath(os.path.join(project_dir, d), project_dir) for d in exclude_dirs}
+
     with open(output_file, 'w', encoding='utf-8') as outfile:
         for root, dirs, files in os.walk(project_dir):
-            dirs[:] = [d for d in dirs if d not in exclude_dirs]
+            rel_root = os.path.relpath(root, project_dir)
+            if rel_root in exclude_dirs:
+                continue
+
+            dirs[:] = [d for d in dirs if os.path.relpath(os.path.join(root, d), project_dir) not in exclude_dirs]
             
             for file in files:
                 if file in exclude_files:

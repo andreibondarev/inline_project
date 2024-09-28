@@ -23,3 +23,6 @@ This will create a file named `output.txt` containing the inlined content of you
 - `--exclude-dirs`: Directories to exclude (optional, can specify multiple)
 - `--exclude-files`: Files to exclude (optional, can specify multiple)
 
+## Note
+
+The `--exclude-dirs` option should use relative paths from `project_dir`.
